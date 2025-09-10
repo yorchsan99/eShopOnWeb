@@ -44,6 +44,10 @@ jobs:
         name: bicep-template
         path: infra/webapp.bicep
 
+    - name: Verificar archivo Bicep
+      run: ls -R bicep-template
+
+
   deploy:
     runs-on: ubuntu-latest
     needs: buildandtest
