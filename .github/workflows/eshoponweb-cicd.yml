@@ -71,7 +71,7 @@ jobs:
       run: |
         az deployment group validate \
           --resource-group ${{ env.RESOURCE-GROUP }} \
-          --template-file bicep-template/webapp.bicep/webapp.bicep \
+          --template-file bicep-template/webapp.bicep \
           --parameters webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}
 
     - name: Deploy infraestructura con Bicep
@@ -79,16 +79,4 @@ jobs:
       with:
         subscriptionId: ${{ env.SUBSCRIPTION-ID }}
         resourceGroupName: ${{ env.RESOURCE-GROUP }}
-        template: bicep-template/webapp.bicep/webapp.bicep
-        parameters: 'webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}'
-        failOnStdErr: false
-
-    - name: Publicar sitio web en WebApp
-      uses: Azure/cli@v2
-      with:
-        inlineScript: |
-          az webapp deploy \
-            --name ${{ env.WEBAPP-NAME }} \
-            --resource-group ${{ env.RESOURCE-GROUP }} \
-            --src-path .net-app/app.zip \
-            --type zip
+        template: bicep-template/webapp
