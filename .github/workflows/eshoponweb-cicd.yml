@@ -7,7 +7,7 @@ on: workflow_dispatch
 env:
   RESOURCE-GROUP: rg-eshoponweb-westeurope
   LOCATION: westeurope
-  TEMPLATE-FILE: bicep-template/webapp.bicep/webapp.bicep
+  template: bicep-template/webapp.bicep/webapp.bicep
   SUBSCRIPTION-ID: 5852fa55-e27e-41c8-be3f-fc1bf84ba0e4
   WEBAPP-NAME: ddevops-webapp-westeurope
   
